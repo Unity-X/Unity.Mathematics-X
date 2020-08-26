@@ -92,7 +92,7 @@ namespace Unity.MathematicsX
         }
     }
 
-    public partial class mathX
+    public static partial class mathX
     {
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static intRect intRect(int xMin, int yMin, int width, int height)
@@ -116,7 +116,7 @@ namespace Unity.MathematicsX
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public intRect clamp(in intRect rect, in intRect bounds)
+        public static intRect clamp(in intRect rect, in intRect bounds)
         {
             return new intRect(
                 xMin: math.clamp(rect.x, bounds.xMin, bounds.xMax),
@@ -126,13 +126,13 @@ namespace Unity.MathematicsX
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public bool contains(in int2 position, in intRect rect)
+        public static bool contains(in int2 position, in intRect rect)
         {
             return contains(rect, position);
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public bool contains(in intRect rect, in int2 position)
+        public static bool contains(in intRect rect, in int2 position)
         {
             return position.x >= rect.xMin
                 && position.y >= rect.yMin
@@ -141,7 +141,7 @@ namespace Unity.MathematicsX
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public bool overlaps(in intRect a, in intRect b)
+        public static bool overlaps(in intRect a, in intRect b)
         {
             return b.xMin < a.xMax
                 && b.xMax > a.xMin
