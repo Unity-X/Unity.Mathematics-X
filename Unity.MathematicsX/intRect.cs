@@ -110,13 +110,13 @@ namespace Unity.MathematicsX
         /// Center coordinate of the rectangle.
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float2 center(in intRect rect)
+        public static float2 center(intRect rect)
         {
             return float2(rect.x + rect.width / 2f, rect.y + rect.height / 2f);
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static intRect clamp(in intRect rect, in intRect bounds)
+        public static intRect clamp(intRect rect, intRect bounds)
         {
             return new intRect(
                 xMin: math.clamp(rect.x, bounds.xMin, bounds.xMax),
@@ -126,13 +126,13 @@ namespace Unity.MathematicsX
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool contains(in int2 position, in intRect rect)
+        public static bool contains(int2 position, intRect rect)
         {
             return contains(rect, position);
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool contains(in intRect rect, in int2 position)
+        public static bool contains(intRect rect, int2 position)
         {
             return position.x >= rect.xMin
                 && position.y >= rect.yMin
@@ -141,7 +141,7 @@ namespace Unity.MathematicsX
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool overlaps(in intRect a, in intRect b)
+        public static bool overlaps(intRect a, intRect b)
         {
             return b.xMin < a.xMax
                 && b.xMax > a.xMin
