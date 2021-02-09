@@ -38,6 +38,32 @@ namespace Unity.MathematicsX
         {
             return math.int4(sign(v.x), sign(v.y), sign(v.z), sign(v.w));
         }
+
+        /// <summary>
+        /// Modulo operation (the positive remainder). 
+        /// </summary>
+        public static int mod(int value, int modulo)
+        {
+            int result = value % modulo;
+            if ((result < 0 && modulo > 0) || (result > 0 && modulo < 0))
+            {
+                result += modulo;
+            }
+            return result;
+        }
+
+        /// <summary>
+        /// Modulo operation (the positive remainder). 
+        /// </summary>
+        public static float mod(float value, float modulo)
+        {
+            float result = value % modulo;
+            if ((result < 0 && modulo > 0) || (result > 0 && modulo < 0))
+            {
+                result += modulo;
+            }
+            return result;
+        }
     }
 #pragma warning restore IDE1006 // Naming Styles
 }
