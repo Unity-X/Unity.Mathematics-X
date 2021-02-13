@@ -40,6 +40,68 @@ namespace Unity.MathematicsX
         }
 
         /// <summary>
+        /// Ceils a value to a given step (e.g. ceil(145, 50) = 150). Using a negative step value with floor instead
+        /// </summary>
+        public static int ceil(int value, int step)
+        {
+            int extra = value % step;
+
+            if (extra != 0 && math.sign(extra) == math.sign(step))
+                extra -= step;
+
+            return value - extra;
+        }
+
+        /// <summary>
+        /// Ceils a value to a given step (e.g. ceil(145, 50) = 150). Using a negative step value with floor instead
+        /// </summary>
+        public static float ceil(float value, float step)
+        {
+            float extra = value % step;
+
+            if (extra != 0 && math.sign(extra) == math.sign(step))
+                extra -= step;
+
+            return value - extra;
+        }
+
+        public static int round(int value, int stepSize)
+        {
+            return (int)(math.round(value / (float)stepSize) * stepSize);
+        }
+
+        public static float round(float value, float stepSize)
+        {
+            return math.round(value / stepSize) * stepSize;
+        }
+
+        /// <summary>
+        /// Floors a value to a given step (e.g. ceil(145, 50) = 100). Using a negative step value with ceil instead
+        /// </summary>
+        public static int floor(int value, int step)
+        {
+            int extra = value % step;
+
+            if (extra != 0 && math.sign(extra) != math.sign(step))
+                extra += step;
+
+            return value - extra;
+        }
+
+        /// <summary>
+        /// Floors a value to a given step (e.g. ceil(145, 50) = 100). Using a negative step value with ceil instead
+        /// </summary>
+        public static float floor(float value, float step)
+        {
+            float extra = value % step;
+
+            if (extra != 0 && math.sign(extra) != math.sign(step))
+                extra += step;
+
+            return value - extra;
+        }
+
+        /// <summary>
         /// Modulo operation (the positive remainder). 
         /// </summary>
         public static int mod(int value, int modulo)
