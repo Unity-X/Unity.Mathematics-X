@@ -126,6 +126,9 @@ namespace Unity.MathematicsX
             }
             return result;
         }
+
+        public static bool even(int v) => v % 2 == 0;
+        public static bool odd(int v) => v % 2 != 0;
     }
 #pragma warning restore IDE1006 // Naming Styles
 }
