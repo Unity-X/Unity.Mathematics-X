@@ -129,6 +129,18 @@ namespace Unity.MathematicsX
 
         public static bool even(int v) => v % 2 == 0;
         public static bool odd(int v) => v % 2 != 0;
+
+        public static float2 clampLength(float2 v, float min, float max)
+        {
+            float l = math.length(v);
+            return math.clamp(l, min, max) * (v / l);
+        }
+
+        public static float3 clampLength(float3 v, float min, float max)
+        {
+            float l = math.length(v);
+            return math.clamp(l, min, max) * (v / l);
+        }
     }
 #pragma warning restore IDE1006 // Naming Styles
 }
