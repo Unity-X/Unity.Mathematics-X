@@ -141,6 +141,15 @@ namespace Unity.MathematicsX
             float l = math.length(v);
             return math.clamp(l, min, max) * (v / l);
         }
+
+        public static int lengthmanhattan(int2 v) => math.abs(v.x) + math.abs(v.y);
+        public static int lengthmanhattan(int3 v) => math.abs(v.x) + math.abs(v.y) + math.abs(v.z);
+        public static int lengthmanhattan(int4 v) => math.abs(v.x) + math.abs(v.y) + math.abs(v.z) + math.abs(v.w);
+
+        public static int distancemanhattan(int a , int  b) => math.abs(a - b);
+        public static int distancemanhattan(int2 a, int2 b) => lengthmanhattan(a - b);
+        public static int distancemanhattan(int3 a, int3 b) => lengthmanhattan(a - b);
+        public static int distancemanhattan(int4 a, int4 b) => lengthmanhattan(a - b);
     }
 #pragma warning restore IDE1006 // Naming Styles
 }
