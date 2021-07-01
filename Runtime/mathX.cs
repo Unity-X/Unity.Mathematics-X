@@ -133,12 +133,16 @@ namespace Unity.MathematicsX
         public static float2 clampLength(float2 v, float min, float max)
         {
             float l = math.length(v);
+            if (l <= float.Epsilon)
+                return new float2(min, 0);
             return math.clamp(l, min, max) * (v / l);
         }
 
         public static float3 clampLength(float3 v, float min, float max)
         {
             float l = math.length(v);
+            if (l <= float.Epsilon)
+                return new float3(min, 0, 0);
             return math.clamp(l, min, max) * (v / l);
         }
 
