@@ -9,10 +9,25 @@ namespace Unity.MathematicsX
 #pragma warning disable IDE1006 // Naming Styles
     public static partial class mathX
     {
+        /// <summary>
+        /// Returns true if both values have the same sign
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool samesign(float a, float b)
+        {
+            return a * b >= 0;
+        }
+
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float angle2d(float2 v)
         {
             return math.atan2(v.y, v.x);
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float angle2d(float x, float y)
+        {
+            return math.atan2(y, x);
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
