@@ -169,6 +169,8 @@ namespace Unity.MathematicsX
         public static int distancemanhattan(int2 a, int2 b) => lengthmanhattan(a - b);
         public static int distancemanhattan(int3 a, int3 b) => lengthmanhattan(a - b);
         public static int distancemanhattan(int4 a, int4 b) => lengthmanhattan(a - b);
+
+        public static float2 anglevector(float angle) => new float2(math.cos(angle), math.sin(angle));
     }
 #pragma warning restore IDE1006 // Naming Styles
 }
