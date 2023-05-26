@@ -90,6 +90,12 @@ namespace Unity.MathematicsX
             return math.round(value / stepSize) * stepSize;
         }
 
+        public static float roundDecimals(float value, int decimalCount)
+        {
+            var decimals = math.pow(10, decimalCount);
+            return math.round(value * decimals) / decimals;
+        }
+
         /// <summary>
         /// Floors a value to a given step (e.g. ceil(145, 50) = 100). Using a negative step value with ceil instead
         /// </summary>
