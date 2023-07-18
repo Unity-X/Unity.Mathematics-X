@@ -91,6 +91,8 @@ namespace Unity.MathematicsX
             /// Given a displacement, a launch angle and a gravity, returns the required launch speed of a projectile.
             /// <para/>
             /// <b>NB:</b> If gravity is 0, the return value will be 0.
+            /// <para/>
+            /// <b>NB:</b> If the displacement is impossible to produce with the angle and gravity, the return value will be -1.
             /// </summary>
             /// <param name="dx">The horizontal displacement. finalPosition.x - startPosition.x</param>
             /// <param name="dy">The vertical displacement. finalPosition.y - startPosition.y</param>
@@ -128,8 +130,12 @@ namespace Unity.MathematicsX
                     }
                 }
 
+
                 // 2D calculations
-                return dx / (sqrt(2 * (dy - (dx * sin / cos)) / g) * cos);
+                float sqrtVal = 2 * (dy - (dx * sin / cos)) / g;
+                if(sqrtVal < 0) // impossible to reach the target
+                    return -1;
+                return dx / (sqrt(sqrtVal) * cos);
             }
 
             public static float2 Position(float2 startingPosition, float2 velocity, float2 gravity, float time)
