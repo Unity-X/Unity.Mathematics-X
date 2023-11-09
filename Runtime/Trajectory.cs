@@ -184,7 +184,7 @@ namespace Unity.MathematicsX
 
                 float c = -k * (srp * (ag + bh) * srv + bgah2 * math.log(math.max(srp * srv + ag + bh, 0.0001f)));
                 float longSquareRoot = math.sqrt(v + (2 * ag * x) + (2 * bh * x) + (p * x * x));
-                return k * (srp * (ag + bh + x * p) * longSquareRoot + bgah2 * math.log(srp * longSquareRoot + ag + bh + g * g * x + h * h * x)) + c;
+                return k * (srp * (ag + bh + x * p) * longSquareRoot + bgah2 * math.log(max(srp * longSquareRoot + ag + bh + g * g * x + h * h * x, 0.0001f))) + c;
             }
 
             public static float TravelDurationApprox(float2 velocity, float2 gravity, float traveledDistance, float precision = 0.01f)
