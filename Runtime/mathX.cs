@@ -57,12 +57,12 @@ namespace Unity.MathematicsX
         /// <summary>
         /// Ceils a value to a given step (e.g. ceil(145, 50) = 150). Using a negative step value with floor instead
         /// </summary>
-        public static int ceil(int value, int step)
+        public static int ceil(int value, int stepSize)
         {
-            int extra = value % step;
+            int extra = value % stepSize;
 
-            if (extra != 0 && math.sign(extra) == math.sign(step))
-                extra -= step;
+            if (extra != 0 && math.sign(extra) == math.sign(stepSize))
+                extra -= stepSize;
 
             return value - extra;
         }
@@ -70,22 +70,22 @@ namespace Unity.MathematicsX
         /// <summary>
         /// Ceils a value to a given step (e.g. ceil(145, 50) = 150). Using a negative step value with floor instead
         /// </summary>
-        public static float ceil(float value, float step)
+        public static float ceil(float value, float stepSize)
         {
-            float extra = value % step;
+            float extra = value % stepSize;
 
-            if (extra != 0 && math.sign(extra) == math.sign(step))
-                extra -= step;
+            if (extra != 0 && math.sign(extra) == math.sign(stepSize))
+                extra -= stepSize;
 
             return value - extra;
         }
 
-        public static int round(int value, int stepSize)
+        public static int roundStep(int value, int stepSize)
         {
             return (int)(math.round(value / (float)stepSize) * stepSize);
         }
 
-        public static float round(float value, float stepSize)
+        public static float roundStep(float value, float stepSize)
         {
             return math.round(value / stepSize) * stepSize;
         }
@@ -99,12 +99,12 @@ namespace Unity.MathematicsX
         /// <summary>
         /// Floors a value to a given step (e.g. ceil(145, 50) = 100). Using a negative step value with ceil instead
         /// </summary>
-        public static int floor(int value, int step)
+        public static int floorStep(int value, int stepSize)
         {
-            int extra = value % step;
+            int extra = value % stepSize;
 
-            if (extra != 0 && math.sign(extra) != math.sign(step))
-                extra += step;
+            if (extra != 0 && math.sign(extra) != math.sign(stepSize))
+                extra += stepSize;
 
             return value - extra;
         }
@@ -112,12 +112,12 @@ namespace Unity.MathematicsX
         /// <summary>
         /// Floors a value to a given step (e.g. ceil(145, 50) = 100). Using a negative step value with ceil instead
         /// </summary>
-        public static float floor(float value, float step)
+        public static float floorStep(float value, float stepSize)
         {
-            float extra = value % step;
+            float extra = value % stepSize;
 
-            if (extra != 0 && math.sign(extra) != math.sign(step))
-                extra += step;
+            if (extra != 0 && math.sign(extra) != math.sign(stepSize))
+                extra += stepSize;
 
             return value - extra;
         }
@@ -171,7 +171,7 @@ namespace Unity.MathematicsX
         public static int lengthmanhattan(int3 v) => math.abs(v.x) + math.abs(v.y) + math.abs(v.z);
         public static int lengthmanhattan(int4 v) => math.abs(v.x) + math.abs(v.y) + math.abs(v.z) + math.abs(v.w);
 
-        public static int distancemanhattan(int a , int  b) => math.abs(a - b);
+        public static int distancemanhattan(int a, int b) => math.abs(a - b);
         public static int distancemanhattan(int2 a, int2 b) => lengthmanhattan(a - b);
         public static int distancemanhattan(int3 a, int3 b) => lengthmanhattan(a - b);
         public static int distancemanhattan(int4 a, int4 b) => lengthmanhattan(a - b);
