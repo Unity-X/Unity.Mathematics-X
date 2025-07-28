@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using Unity.Mathematics;
+using UnityEngine;
 
 namespace Unity.MathematicsX
 {
@@ -171,10 +172,27 @@ namespace Unity.MathematicsX
         public static int lengthmanhattan(int3 v) => math.abs(v.x) + math.abs(v.y) + math.abs(v.z);
         public static int lengthmanhattan(int4 v) => math.abs(v.x) + math.abs(v.y) + math.abs(v.z) + math.abs(v.w);
 
+        public static float lengthmanhattan(float2 v) => math.abs(v.x) + math.abs(v.y);
+        public static float lengthmanhattan(float3 v) => math.abs(v.x) + math.abs(v.y) + math.abs(v.z);
+        public static float lengthmanhattan(float4 v) => math.abs(v.x) + math.abs(v.y) + math.abs(v.z) + math.abs(v.w);
+
+        public static float lengthmanhattan(Vector2 v) => math.abs(v.x) + math.abs(v.y);
+        public static float lengthmanhattan(Vector3 v) => math.abs(v.x) + math.abs(v.y) + math.abs(v.z);
+        public static float lengthmanhattan(Vector4 v) => math.abs(v.x) + math.abs(v.y) + math.abs(v.z) + math.abs(v.w);
+
         public static int distancemanhattan(int a, int b) => math.abs(a - b);
         public static int distancemanhattan(int2 a, int2 b) => lengthmanhattan(a - b);
         public static int distancemanhattan(int3 a, int3 b) => lengthmanhattan(a - b);
         public static int distancemanhattan(int4 a, int4 b) => lengthmanhattan(a - b);
+
+        public static float distancemanhattan(float a, float b) => math.abs(a - b);
+        public static float distancemanhattan(float2 a, float2 b) => lengthmanhattan(a - b);
+        public static float distancemanhattan(float3 a, float3 b) => lengthmanhattan(a - b);
+        public static float distancemanhattan(float4 a, float4 b) => lengthmanhattan(a - b);
+
+        public static float distancemanhattan(Vector2 a, Vector2 b) => lengthmanhattan(a - b);
+        public static float distancemanhattan(Vector3 a, Vector3 b) => lengthmanhattan(a - b);
+        public static float distancemanhattan(Vector4 a, Vector4 b) => lengthmanhattan(a - b);
 
         public static float2 anglevector(float angle) => new float2(math.cos(angle), math.sin(angle));
     }
